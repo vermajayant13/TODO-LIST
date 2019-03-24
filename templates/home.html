@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Hi !! {{ user.username }}!</h1>
+  <br/>
+<h1>HERE IS THE LINK TO YOUR TODO LIST</h1>
+  <a href="http://127.0.0.1:8000/todo/"><h1>CLICK HERE</h1></a>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
